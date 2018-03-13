@@ -54,6 +54,7 @@ public class LgoinServiceImpl extends EgovAbstractServiceImpl implements LoginSe
 	// TODO ibatis 사용
 	@Resource(name = "defaultDAO")
 	private DefaultDAO defaultDAO;
+	
 	// TODO mybatis 사용
 	//  @Resource(name="sampleMapper")
 	//	private SampleMapper sampleDAO;

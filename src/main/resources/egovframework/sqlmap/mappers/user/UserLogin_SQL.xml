@@ -3,7 +3,7 @@
 
 <sqlMap namespace="userLogin">
 
-	<!-- <typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.egovMap"/> -->
+	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.egovMap"/>
 	<!-- <resultMap id="sample" class="egovframework.example.sample.service.SampleVO">
 		<result property="id" column="id"/>
 		<result property="name" column="name"/>
@@ -74,7 +74,7 @@
 	
 	<select id="userLogin.selectListTotCnt" parameterClass="Map" resultClass="int">
 			SELECT COUNT(*) totcnt
-			FROM SAMPLE
+			FROM LOGIN
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
 				USER_ID = #userId#
