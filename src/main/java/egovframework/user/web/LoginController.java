@@ -20,9 +20,9 @@ import java.util.List;
 import egovframework.example.sample.service.EgovSampleService;
 import egovframework.example.sample.service.SampleDefaultVO;
 import egovframework.example.sample.service.SampleVO;
-
 import egovframework.rte.fdl.property.EgovPropertyService;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
+import egovframework.user.service.LoginService;
 
 import javax.annotation.Resource;
 
@@ -57,8 +57,10 @@ import org.springmodules.validation.commons.DefaultBeanValidator;
 public class LoginController {
 
 	/** EgovSampleService */
-	@Resource(name = "sampleService")
-	private EgovSampleService sampleService;
+/*	@Resource(name = "sampleService")
+	private EgovSampleService sampleService;*/
+		@Resource(name = "loginService")
+	private LoginService loginService;
 
 	/** EgovPropertyService */
 	@Resource(name = "propertiesService")
@@ -69,37 +71,15 @@ public class LoginController {
 	protected DefaultBeanValidator beanValidator;
 
 	/**
-	 * 글 목록을 조회한다. (pageing)
+	 * 로그인 화면.이동
 	 * @param searchVO - 조회할 정보가 담긴 SampleDefaultVO
 	 * @param model
 	 * @return "egovSampleList"
 	 * @exception Exception
 	 */
-	@RequestMapping(value = "/egovSampleList.do")
+	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
 	public String selectSampleList(@ModelAttribute("searchVO") SampleDefaultVO searchVO, ModelMap model) throws Exception {
-
-		/** EgovPropertyService.sample */
-		searchVO.setPageUnit(propertiesService.getInt("pageUnit"));
-		searchVO.setPageSize(propertiesService.getInt("pageSize"));
-
-		/** pageing setting */
-		PaginationInfo paginationInfo = new PaginationInfo();
-		paginationInfo.setCurrentPageNo(searchVO.getPageIndex());
-		paginationInfo.setRecordCountPerPage(searchVO.getPageUnit());
-		paginationInfo.setPageSize(searchVO.getPageSize());
-
-		searchVO.setFirstIndex(paginationInfo.getFirstRecordIndex());
-		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
-		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
-
-		List<?> sampleList = sampleService.selectSampleList(searchVO);
-		model.addAttribute("resultList", sampleList);
-
-		int totCnt = sampleService.selectSampleListTotCnt(searchVO);
-		paginationInfo.setTotalRecordCount(totCnt);
-		model.addAttribute("paginationInfo", paginationInfo);
-
-		return "sample/egovSampleList";
+		return "user/loginForm";
 	}
 
 	/**
@@ -109,7 +89,7 @@ public class LoginController {
 	 * @return "egovSampleRegister"
 	 * @exception Exception
 	 */
-	@RequestMapping(value = "/addSample.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
 	public String addSampleView(@ModelAttribute("searchVO") SampleDefaultVO searchVO, Model model) throws Exception {
 		model.addAttribute("sampleVO", new SampleVO());
 		return "sample/egovSampleRegister";
@@ -135,7 +115,7 @@ public class LoginController {
 			return "sample/egovSampleRegister";
 		}
 
-		sampleService.insertSample(sampleVO);
+//		sampleService.insertSample(sampleVO);
 		status.setComplete();
 		return "forward:/egovSampleList.do";
 	}
@@ -166,7 +146,8 @@ public class LoginController {
 	 * @exception Exception
 	 */
 	public SampleVO selectSample(SampleVO sampleVO, @ModelAttribute("searchVO") SampleDefaultVO searchVO) throws Exception {
-		return sampleService.selectSample(sampleVO);
+//		return sampleService.selectSample(sampleVO);
+		return null;
 	}
 
 	/**
@@ -188,7 +169,7 @@ public class LoginController {
 			return "sample/egovSampleRegister";
 		}
 
-		sampleService.updateSample(sampleVO);
+//		sampleService.updateSample(sampleVO);
 		status.setComplete();
 		return "forward:/egovSampleList.do";
 	}
@@ -203,7 +184,7 @@ public class LoginController {
 	 */
 	@RequestMapping("/deleteSample.do")
 	public String deleteSample(SampleVO sampleVO, @ModelAttribute("searchVO") SampleDefaultVO searchVO, SessionStatus status) throws Exception {
-		sampleService.deleteSample(sampleVO);
+//		sampleService.deleteSample(sampleVO);
 		status.setComplete();
 		return "forward:/egovSampleList.do";
 	}

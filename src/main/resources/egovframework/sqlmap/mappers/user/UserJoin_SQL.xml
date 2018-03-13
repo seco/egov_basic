@@ -58,14 +58,14 @@
 		]]>
 	</delete>
     
-    <select id="userJoin.selectOne"  parameterClass="egovMap"  resultClass="egovMap">
+    <select id="userJoin.selectOne"  parameterClass="Map"  resultClass="egovMap">
         <![CDATA[
             SELECT * FROM USER_JOIN
             WHERE ID = #id#
         ]]>
     </select>
 	
-	<select id="userJoin.selectList" parameterClass="egovMap" resultClass="egovMap">
+	<select id="userJoin.selectList" parameterClass="Map" resultClass="egovMap">
 		    SELECT * FROM USER_JOIN
             WHERE 1 = 1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
@@ -84,7 +84,7 @@
 			LIMIT #recordCountPerPage# OFFSET #firstIndex#		
 	</select>
 	
-	<select id="userJoin.selectListTotCnt" parameterClass="egovMap" resultClass="int">
+	<select id="userJoin.selectListTotCnt" parameterClass="Map" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM USER_JOIN
 			WHERE 1=1

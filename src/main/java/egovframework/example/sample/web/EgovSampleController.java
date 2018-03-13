@@ -76,7 +76,7 @@ public class EgovSampleController {
 	 * @return "egovSampleList"
 	 * @exception Exception
 	 */
-	@RequestMapping(value = "/egovSampleList.do")
+	@RequestMapping(value = "/exmple/sample/egovSampleList.do")
 	public String selectSampleList(@ModelAttribute("searchVO") SampleDefaultVO searchVO, ModelMap model) throws Exception {
 
 		/** EgovPropertyService.sample */
@@ -110,7 +110,7 @@ public class EgovSampleController {
 	 * @return "egovSampleRegister"
 	 * @exception Exception
 	 */
-	@RequestMapping(value = "/addSample.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/exmple/sample/addSample.do", method = RequestMethod.GET)
 	public String addSampleView(@ModelAttribute("searchVO") SampleDefaultVO searchVO, Model model) throws Exception {
 		model.addAttribute("sampleVO", new SampleVO());
 		return "sample/egovSampleRegister";
@@ -124,7 +124,7 @@ public class EgovSampleController {
 	 * @return "forward:/egovSampleList.do"
 	 * @exception Exception
 	 */
-	@RequestMapping(value = "/addSample.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/exmple/sample/addSample.do", method = RequestMethod.POST)
 	public String addSample(@ModelAttribute("searchVO") SampleDefaultVO searchVO, SampleVO sampleVO, BindingResult bindingResult, Model model, SessionStatus status)
 			throws Exception {
 
@@ -149,7 +149,7 @@ public class EgovSampleController {
 	 * @return "egovSampleRegister"
 	 * @exception Exception
 	 */
-	@RequestMapping("/updateSampleView.do")
+	@RequestMapping("/exmple/sample/updateSampleView.do")
 	public String updateSampleView(@RequestParam("selectedId") String id, @ModelAttribute("searchVO") SampleDefaultVO searchVO, Model model) throws Exception {
 		SampleVO sampleVO = new SampleVO();
 		sampleVO.setId(id);
@@ -178,7 +178,7 @@ public class EgovSampleController {
 	 * @return "forward:/egovSampleList.do"
 	 * @exception Exception
 	 */
-	@RequestMapping("/updateSample.do")
+	@RequestMapping("/exmple/sample/updateSample.do")
 	public String updateSample(@ModelAttribute("searchVO") SampleDefaultVO searchVO, SampleVO sampleVO, BindingResult bindingResult, Model model, SessionStatus status)
 			throws Exception {
 
@@ -202,7 +202,7 @@ public class EgovSampleController {
 	 * @return "forward:/egovSampleList.do"
 	 * @exception Exception
 	 */
-	@RequestMapping("/deleteSample.do")
+	@RequestMapping("/exmple/sample/deleteSample.do")
 	public String deleteSample(SampleVO sampleVO, @ModelAttribute("searchVO") SampleDefaultVO searchVO, SessionStatus status) throws Exception {
 		sampleService.deleteSample(sampleVO);
 		status.setComplete();

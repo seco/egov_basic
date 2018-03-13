@@ -12,7 +12,7 @@
 		<result property="regUser" column="reg_user"/>
 	</resultMap> -->
 
-	<insert id="userLogin.Login"  parameterClass="egovMap">
+	<insert id="userLogin.Login"  parameterClass="Map">
 		<![CDATA[
 			INSERT INTO LOGIN
 				( ID
@@ -28,7 +28,7 @@
 		]]>
 	</insert>
 	
-	<update id="userLogin.Logout" parameterClass="egovMap">
+	<update id="userLogin.Logout" parameterClass="Map">
 		<![CDATA[
 			UPDATE LOGIN
 			SET 
@@ -37,14 +37,14 @@
 		]]>
 	</update>
 	
-	<delete id="userLogin.deleteOne" parameterClass="egovMap">
+	<delete id="userLogin.deleteOne" parameterClass="Map">
 		<![CDATA[
 			DELETE FROM LOGIN
 			WHERE ID=#id#
 		]]>
 	</delete>
 
-	<delete id="userLogin.deleteAll" parameterClass="egovMap">
+	<delete id="userLogin.deleteAll" parameterClass="Map">
 			DELETE FROM LOGIN
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
@@ -52,14 +52,14 @@
 			</isEqual>
 	</delete>
     
-    <select id="userLogin.selectOne" parameterClass="egovMap" resultClass="egovMap">
+    <select id="userLogin.selectOne" parameterClass="Map" resultClass="egovMap">
         <![CDATA[
             SELECT * FROM LOGIN
             WHERE ID = #id#
         ]]>
     </select>
 	
-	<select id="userLogin.selectList" parameterClass="egovMap" resultClass="egovMap">
+	<select id="userLogin.selectList" parameterClass="Map" resultClass="egovMap">
 			SELECT * FROM LOGIN
 			WHERE 1=1
 			<isEqual prepend="AND" property="searchCondition" compareValue="0">
@@ -72,7 +72,7 @@
 			LIMIT #recordCountPerPage# OFFSET #firstIndex#		
 	</select>
 	
-	<select id="userLogin.selectListTotCnt" parameterClass="egovMap" resultClass="int">
+	<select id="userLogin.selectListTotCnt" parameterClass="Map" resultClass="int">
 			SELECT COUNT(*) totcnt
 			FROM SAMPLE
 			WHERE 1=1
