@@ -19,6 +19,7 @@ public class ContextDataSource {
 		return new EmbeddedDatabaseBuilder()
 				.setType(EmbeddedDatabaseType.HSQL)
 				.addScript("classpath:db/sampledb.sql")
+				.addScript("classpath:db/startdb.sql")
 				.build();
 	}
 	

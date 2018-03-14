@@ -16,6 +16,7 @@
 package egovframework.user.service;
 
 import java.util.List;
+import java.util.Map;
 
 import egovframework.rte.psl.dataaccess.util.EgovMap;
 
@@ -42,7 +43,7 @@ public interface LoginService {
 	 * @return 등록 결과
 	 * @exception Exception
 	 */
-	String Login(EgovMap map) throws Exception;
+	String Login(Map map) throws Exception;
 
 	/**
 	 * 로그아웃 시간 업데이트
@@ -50,7 +51,7 @@ public interface LoginService {
 	 * @return void형
 	 * @exception Exception
 	 */
-	void Logout(EgovMap map) throws Exception;
+	void Logout(Map map) throws Exception;
 
 	/**
 	 * 접속 이력 삭제
@@ -58,7 +59,7 @@ public interface LoginService {
 	 * @return void형
 	 * @exception Exception
 	 */
-	void deleteHistory(EgovMap map) throws Exception;
+	void deleteHistory(Map map) throws Exception;
 
 	/**
 	 * 한 건 조회
@@ -66,7 +67,7 @@ public interface LoginService {
 	 * @return 조회한 글
 	 * @exception Exception
 	 */
-	EgovMap selectOne(EgovMap map) throws Exception;
+	EgovMap selectOne(Map map) throws Exception;
 
 	/**
 	 * 목록 조회
@@ -74,7 +75,7 @@ public interface LoginService {
 	 * @return 글 목록
 	 * @exception Exception
 	 */
-	List<EgovMap> selectList(EgovMap EgovMap) throws Exception;
+	List<EgovMap> selectList(Map EgovMap) throws Exception;
 
 	/**
 	 * 글 총 갯수를 조회한다.
@@ -82,6 +83,6 @@ public interface LoginService {
 	 * @return 글 총 갯수
 	 * @exception
 	 */
-	int selectListTotCnt(EgovMap EgovMap);
+	int selectListTotCnt(Map EgovMap);
 
 }

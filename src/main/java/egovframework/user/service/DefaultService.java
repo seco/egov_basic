@@ -16,6 +16,8 @@
 package egovframework.user.service;
 
 import java.util.List;
+import java.util.Map;
+
 import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
@@ -41,7 +43,7 @@ public interface DefaultService {
 	 * @return 등록 결과
 	 * @exception Exception
 	 */
-	String insert(EgovMap map) throws Exception;
+	String insert(Map map) throws Exception;
 
 	/**
 	 * 수정
@@ -49,7 +51,7 @@ public interface DefaultService {
 	 * @return void형
 	 * @exception Exception
 	 */
-	void update(EgovMap map) throws Exception;
+	void update(Map map) throws Exception;
 
 	/**
 	 * 삭제
@@ -57,7 +59,7 @@ public interface DefaultService {
 	 * @return void형
 	 * @exception Exception
 	 */
-	void delete(EgovMap map) throws Exception;
+	void delete(Map map) throws Exception;
 
 	/**
 	 * 한건 조회
@@ -65,7 +67,7 @@ public interface DefaultService {
 	 * @return 조회한 글
 	 * @exception Exception
 	 */
-	EgovMap select(EgovMap map) throws Exception;
+	EgovMap select(Map map) throws Exception;
 
 	/**
 	 * 목록조회
@@ -73,7 +75,7 @@ public interface DefaultService {
 	 * @return 글 목록
 	 * @exception Exception
 	 */
-	List<EgovMap> selectList(EgovMap map) throws Exception;
+	List<EgovMap> selectList(Map map) throws Exception;
 
 	/**
 	 * 총 갯수 조회
@@ -81,6 +83,6 @@ public interface DefaultService {
 	 * @return 글 총 갯수
 	 * @exception
 	 */
-	int selectListTotCnt(EgovMap map);
+	int selectListTotCnt(Map map);
 
 }

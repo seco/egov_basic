@@ -16,6 +16,9 @@
 package egovframework.user.service;
 
 import java.util.List;
+import java.util.Map;
+
+import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 /**
  * @Class Name : LoginService.java
@@ -40,7 +43,7 @@ public interface JoinService {
 	 * @return 등록 결과
 	 * @exception Exception
 	 */
-	String insertSample(SampleVO vo) throws Exception;
+	String insertSample(Map map) throws Exception;
 
 	/**
 	 * 글을 수정한다.
@@ -48,7 +51,7 @@ public interface JoinService {
 	 * @return void형
 	 * @exception Exception
 	 */
-	void updateSample(SampleVO vo) throws Exception;
+	void updateSample(Map map) throws Exception;
 
 	/**
 	 * 글을 삭제한다.
@@ -56,7 +59,7 @@ public interface JoinService {
 	 * @return void형
 	 * @exception Exception
 	 */
-	void deleteSample(SampleVO vo) throws Exception;
+	void deleteSample(Map map) throws Exception;
 
 	/**
 	 * 글을 조회한다.
@@ -64,7 +67,7 @@ public interface JoinService {
 	 * @return 조회한 글
 	 * @exception Exception
 	 */
-	SampleVO selectSample(SampleVO vo) throws Exception;
+	EgovMap selectSample(Map map) throws Exception;
 
 	/**
 	 * 글 목록을 조회한다.
@@ -72,7 +75,7 @@ public interface JoinService {
 	 * @return 글 목록
 	 * @exception Exception
 	 */
-	List<?> selectSampleList(SampleDefaultVO searchVO) throws Exception;
+	List<?> selectSampleList(Map map) throws Exception;
 
 	/**
 	 * 글 총 갯수를 조회한다.
@@ -80,6 +83,6 @@ public interface JoinService {
 	 * @return 글 총 갯수
 	 * @exception
 	 */
-	int selectSampleListTotCnt(SampleDefaultVO searchVO);
+	int selectSampleListTotCnt(Map map);
 
 }

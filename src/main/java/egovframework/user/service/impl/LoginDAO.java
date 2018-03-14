@@ -16,6 +16,7 @@
 package egovframework.user.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
 import egovframework.rte.psl.dataaccess.util.EgovMap;
@@ -47,7 +48,7 @@ public class LoginDAO extends EgovAbstractDAO {
 	 * @return 등록 결과
 	 * @exception Exception
 	 */
-	public String Login(EgovMap map) throws Exception {
+	public String Login(Map map) throws Exception {
 		return (String) insert("userLogin.Login", map);
 	}
 
@@ -57,7 +58,7 @@ public class LoginDAO extends EgovAbstractDAO {
 	 * @return void형
 	 * @exception Exception
 	 */
-	public void Logout(EgovMap map) throws Exception {
+	public void Logout(Map map) throws Exception {
 		update("userLogin.Logout", map);
 	}
 
@@ -67,7 +68,7 @@ public class LoginDAO extends EgovAbstractDAO {
 	 * @return void형
 	 * @exception Exception
 	 */
-	public void deleteSample(EgovMap map) throws Exception {
+	public void deleteSample(Map map) throws Exception {
 		delete("userLogin.deleteOne", map);
 	}
 
@@ -77,7 +78,7 @@ public class LoginDAO extends EgovAbstractDAO {
 	 * @return 조회한 글
 	 * @exception Exception
 	 */
-	public EgovMap selectSample(EgovMap map) throws Exception {
+	public EgovMap selectSample(Map map) throws Exception {
 		return (EgovMap) select("loginDAO.selectSample", map);
 	}
 
@@ -87,7 +88,7 @@ public class LoginDAO extends EgovAbstractDAO {
 	 * @return 글 목록
 	 * @exception Exception
 	 */
-	public List<?> selectSampleList(EgovMap map) throws Exception {
+	public List<?> selectSampleList(Map map) throws Exception {
 		return list("loginDAO.selectSampleList", map);
 	}
 
@@ -97,7 +98,7 @@ public class LoginDAO extends EgovAbstractDAO {
 	 * @return 글 총 갯수
 	 * @exception
 	 */
-	public int selectSampleListTotCnt(EgovMap map) {
+	public int selectSampleListTotCnt(Map map) {
 		return (Integer) select("loginDAO.selectSampleListTotCnt", map);
 	}
 

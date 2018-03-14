@@ -16,6 +16,7 @@
 package egovframework.user.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -72,7 +73,7 @@ public class LgoinServiceImpl extends EgovAbstractServiceImpl implements LoginSe
 	 */
 	@Transactional	
 	@Override
-	public String Login(EgovMap map) throws Exception {
+	public String Login(Map map) throws Exception {
 		//login
 		map.put("sqlId", "userLogin.Login");
 		map.put("id", egovIdGnrService.getNextStringId());
@@ -88,7 +89,7 @@ public class LgoinServiceImpl extends EgovAbstractServiceImpl implements LoginSe
 	 */
 	@Transactional
 	@Override
-	public void Logout(EgovMap map) throws Exception {
+	public void Logout(Map map) throws Exception {
 		map.put("sqlId", "userLogin.Logout");
 		 defaultDAO.update(map);
 	}
@@ -101,7 +102,7 @@ public class LgoinServiceImpl extends EgovAbstractServiceImpl implements LoginSe
 	 */
 	@Transactional
 	@Override
-	public void deleteHistory(EgovMap map) throws Exception {
+	public void deleteHistory(Map map) throws Exception {
 		String type = (String) map.get("type");
 		if(type.equals("one")){  // javascript 부터 / controller 에서 분기 하도록 변경
 			map.put("sqlId", "userLogin.deleteOne");
@@ -119,7 +120,7 @@ public class LgoinServiceImpl extends EgovAbstractServiceImpl implements LoginSe
 	 */
 	@Transactional(readOnly=true)
 	@Override
-	public EgovMap selectOne(EgovMap map) throws Exception {
+	public EgovMap selectOne(Map map) throws Exception {
 		map.put("sqlId", "userLogin.selectOne");
 		EgovMap result = defaultDAO.select(map);
 		if (result == null)
@@ -135,7 +136,7 @@ public class LgoinServiceImpl extends EgovAbstractServiceImpl implements LoginSe
 	 */
 	@Transactional(readOnly=true)
 	@Override
-	public List<EgovMap> selectList(EgovMap map) throws Exception {
+	public List<EgovMap> selectList(Map map) throws Exception {
 		map.put("sqlId", "userLogin.selectList");
 		return defaultDAO.selectList(map);
 	}
@@ -148,7 +149,7 @@ public class LgoinServiceImpl extends EgovAbstractServiceImpl implements LoginSe
 	 */
 	@Transactional(readOnly=true)
 	@Override
-	public int selectListTotCnt(EgovMap map) {
+	public int selectListTotCnt(Map map) {
 		map.put("sqlId", "userLogin.selectListTotCnt");
 		return defaultDAO.selectListTotCnt(map);
 	}

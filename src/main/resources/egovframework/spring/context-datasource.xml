@@ -7,6 +7,10 @@
 	<jdbc:embedded-database id="dataSource" type="HSQL">
 		<jdbc:script location= "classpath:/db/sampledb.sql"/>
 	</jdbc:embedded-database>
+
+		<jdbc:embedded-database id="dataSource" type="HSQL">
+		<jdbc:script location= "classpath:/db/startdb.sql"/>
+	</jdbc:embedded-database>
     
     <!-- hsql
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">

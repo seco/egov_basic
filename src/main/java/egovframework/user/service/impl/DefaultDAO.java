@@ -16,6 +16,7 @@
 package egovframework.user.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
 import egovframework.rte.psl.dataaccess.util.EgovMap;
@@ -41,7 +42,7 @@ import org.springframework.stereotype.Repository;
 @Repository("defaultDAO")
 public class DefaultDAO extends EgovAbstractDAO {
 
-	private String getSqlId(EgovMap map) {
+	private String getSqlId(Map map) {
 		return (String)map.get("sqlId");
 	}
 	
@@ -51,7 +52,7 @@ public class DefaultDAO extends EgovAbstractDAO {
 	 * @return 등록 결과
 	 * @exception Exception
 	 */
-	public String insert(EgovMap map) throws Exception {
+	public String insert(Map map) throws Exception {
 		return (String) insert(getSqlId(map), map);
 	}
 
@@ -61,7 +62,7 @@ public class DefaultDAO extends EgovAbstractDAO {
 	 * @return void형
 	 * @exception Exception
 	 */
-	public void update(EgovMap map) throws Exception {
+	public void update(Map map) throws Exception {
 		update(getSqlId(map), map);
 	}
 
@@ -71,7 +72,7 @@ public class DefaultDAO extends EgovAbstractDAO {
 	 * @return void형
 	 * @exception Exception
 	 */
-	public void delete(EgovMap map) throws Exception {
+	public void delete(Map map) throws Exception {
 		delete(getSqlId(map), map);
 	}
 
@@ -81,7 +82,7 @@ public class DefaultDAO extends EgovAbstractDAO {
 	 * @return 조회한 글
 	 * @exception Exception
 	 */
-	public EgovMap select(EgovMap map) throws Exception {
+	public EgovMap select(Map map) throws Exception {
 		return (EgovMap) select(getSqlId(map), map);
 	}
 
@@ -91,7 +92,7 @@ public class DefaultDAO extends EgovAbstractDAO {
 	 * @return 글 목록
 	 * @exception Exception
 	 */
-	public List<EgovMap> selectList(EgovMap map) throws Exception {
+	public List<EgovMap> selectList(Map map) throws Exception {
 		return (List<EgovMap>)list(getSqlId(map), map);
 	}
 
@@ -101,7 +102,7 @@ public class DefaultDAO extends EgovAbstractDAO {
 	 * @return 글 총 갯수
 	 * @exception
 	 */
-	public int selectListTotCnt(EgovMap map) {
+	public int selectListTotCnt(Map map) {
 		return (Integer) select(getSqlId(map), map);
 	}
 
