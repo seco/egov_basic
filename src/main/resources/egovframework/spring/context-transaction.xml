@@ -17,9 +17,7 @@
 	</tx:advice>
 
 	<aop:config>
-		<!-- <aop:pointcut id="requiredTx" expression="execution(* egovframework.example.sample..impl.*Impl.*(..))"/> -->
-		 <aop:pointcut id="requiredTx" expression="execution(* egovframework.user..impl.*Impl.*(..))"/>
-		 <!-- 파일들 정리 후     위 expression 에서 user 도 제거 할것  -->
+		<aop:pointcut id="requiredTx" expression="execution(* egovframework.example.sample..impl.*Impl.*(..))"/>
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="requiredTx" />
 	</aop:config>
 

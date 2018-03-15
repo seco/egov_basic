@@ -16,8 +16,7 @@ public class ContextSqlMap {
 		SqlMapClientFactoryBean smcfb = new SqlMapClientFactoryBean();
 		PathMatchingResourcePatternResolver pmrpr = new PathMatchingResourcePatternResolver();
 		
-//		smcfb.setConfigLocation(pmrpr.getResource("classpath:/egovframework/sqlmap/example/sql-map-config.xml"));
-		smcfb.setConfigLocation(pmrpr.getResource("classpath:/egovframework/sqlmap/sql-map-config.xml"));
+		smcfb.setConfigLocation(pmrpr.getResource("classpath:/egovframework/sqlmap/example/sql-map-config.xml"));
 		smcfb.setDataSource(dataSource);
 		
 		return smcfb;
