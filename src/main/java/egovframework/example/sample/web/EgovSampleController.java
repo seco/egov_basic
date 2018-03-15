@@ -100,7 +100,7 @@ public class EgovSampleController {
 		paginationInfo.setTotalRecordCount(totCnt);
 		model.addAttribute("paginationInfo", paginationInfo);
 
-		return "sample/egovSampleList";
+		return "example/sample/egovSampleList";
 	}
 
 	/**
@@ -113,7 +113,7 @@ public class EgovSampleController {
 	@RequestMapping(value = "/addSample.do", method = RequestMethod.GET)
 	public String addSampleView(@ModelAttribute("searchVO") SampleDefaultVO searchVO, Model model) throws Exception {
 		model.addAttribute("sampleVO", new SampleVO());
-		return "sample/egovSampleRegister";
+		return "example/sample/egovSampleRegister";
 	}
 
 	/**
@@ -133,7 +133,7 @@ public class EgovSampleController {
 
 		if (bindingResult.hasErrors()) {
 			model.addAttribute("sampleVO", sampleVO);
-			return "sample/egovSampleRegister";
+			return "example/sample/egovSampleRegister";
 		}
 
 		sampleService.insertSample(sampleVO);
@@ -155,7 +155,7 @@ public class EgovSampleController {
 		sampleVO.setId(id);
 		// 변수명은 CoC 에 따라 sampleVO
 		model.addAttribute(selectSample(sampleVO, searchVO));
-		return "sample/egovSampleRegister";
+		return "example/sample/egovSampleRegister";
 	}
 
 	/**
@@ -186,7 +186,7 @@ public class EgovSampleController {
 
 		if (bindingResult.hasErrors()) {
 			model.addAttribute("sampleVO", sampleVO);
-			return "sample/egovSampleRegister";
+			return "example/sample/egovSampleRegister";
 		}
 
 		sampleService.updateSample(sampleVO);
