@@ -108,7 +108,8 @@ public class ServletContext extends WebMvcConfigurationSupport {
     	UrlBasedViewResolver urlBasedViewResolver = new UrlBasedViewResolver();
     	urlBasedViewResolver.setOrder(1);
     	urlBasedViewResolver.setViewClass(JstlView.class);
-    	urlBasedViewResolver.setPrefix("/WEB-INF/jsp/egovframework/example/");
+//    	urlBasedViewResolver.setPrefix("/WEB-INF/jsp/egovframework/example/");
+    	urlBasedViewResolver.setPrefix("/WEB-INF/jsp/egovframework/");
     	urlBasedViewResolver.setSuffix(".jsp");
     	return urlBasedViewResolver;
     }

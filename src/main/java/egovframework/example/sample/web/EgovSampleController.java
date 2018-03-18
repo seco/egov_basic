@@ -100,7 +100,8 @@ public class EgovSampleController {
 		paginationInfo.setTotalRecordCount(totCnt);
 		model.addAttribute("paginationInfo", paginationInfo);
 
-		return "example/sample/egovSampleList";
+//		return "example/sample/egovSampleList";
+		return "sample/egovSampleList";
 	}
 
 	/**
@@ -133,7 +134,7 @@ public class EgovSampleController {
 
 		if (bindingResult.hasErrors()) {
 			model.addAttribute("sampleVO", sampleVO);
-			return "example/sample/egovSampleRegister";
+			return "sample/egovSampleRegister";
 		}
 
 		sampleService.insertSample(sampleVO);
@@ -155,7 +156,7 @@ public class EgovSampleController {
 		sampleVO.setId(id);
 		// 변수명은 CoC 에 따라 sampleVO
 		model.addAttribute(selectSample(sampleVO, searchVO));
-		return "example/sample/egovSampleRegister";
+		return "sample/egovSampleRegister";
 	}
 
 	/**
@@ -186,7 +187,7 @@ public class EgovSampleController {
 
 		if (bindingResult.hasErrors()) {
 			model.addAttribute("sampleVO", sampleVO);
-			return "example/sample/egovSampleRegister";
+			return "sample/egovSampleRegister";
 		}
 
 		sampleService.updateSample(sampleVO);
