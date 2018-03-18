@@ -25,6 +25,19 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title><spring:message code="title.sample" /></title>
     <link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/sample.css'/>"/>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script type="text/javaScript" language="javascript" >
+    window.onload = function () {
+    	 var resultList = ${resultList};
+    	 var app = new Vue({
+	    	  el: '#content-pop',
+	    	  data: {
+	    		  results : resultList
+	    	  }
+	    	});
+    }
+	   
+    </script>
     <script type="text/javaScript" language="javascript" defer="defer">
         <!--
         /* 글 수정 화면 function */
@@ -60,7 +73,7 @@
 <body style="text-align:center; margin:0 auto; display:inline; padding-top:100px;">
     <form:form commandName="searchVO" id="listForm" name="listForm" method="post">
         <input type="hidden" name="selectedId" />
-        <div id="content_pop">
+        <div id="content-pop">
         	<!-- 타이틀 -->
         	<div id="title">
         		<ul>
@@ -108,16 +121,22 @@
         				<th align="center"><spring:message code="title.sample.description" /></th>
         				<th align="center"><spring:message code="title.sample.regUser" /></th>
         			</tr>
-        			<c:forEach var="result" items="${resultList}" varStatus="status">
-            			<tr>
-            				<td align="center" class="listtd"><c:out value="${paginationInfo.totalRecordCount+1 - ((searchVO.pageIndex-1) * searchVO.pageSize + status.count)}"/></td>
-            				<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.id}"/>')"><c:out value="${result.id}"/></a></td>
-            				<td align="left" class="listtd"><c:out value="${result.name}"/>&nbsp;</td>
-            				<td align="center" class="listtd"><c:out value="${result.useYn}"/>&nbsp;</td>
-            				<td align="center" class="listtd"><c:out value="${result.description}"/>&nbsp;</td>
-            				<td align="center" class="listtd"><c:out value="${result.regUser}"/>&nbsp;</td>
-            			</tr>
-        			</c:forEach>
+        			
+             			<tr v-for="(result,index) in results">
+            				<td align="center" class="listtd">
+            				<c:out value="${paginationInfo.totalRecordCount+1 - ((searchVO.pageIndex-1) * searchVO.pageSize)}"/>
+
+            				<%-- <c:out value="${paginationInfo.totalRecordCount+1 - ((searchVO.pageIndex-1) * searchVO.pageSize + status.count)}"/> --%>
+            				</td>
+            				<!-- <td align="center" class="listtd"><a href="javascript:fn_egov_select('{{result.id}}')"> {{result.id}}</a></td> -->
+            				<td align="center" class="listtd"><a href=""> {{result.id}}</a></td>
+            				<td align="left" class="listtd">{{result.name}}</td>
+            				<td align="center" class="listtd">{{result.useYn}}</td>
+            				<td align="center" class="listtd">{{result.description}}</td>
+            				<td align="center" class="listtd">{{result.regUser}}</td>
+            			</tr> 
+        			
+        			
         		</table>
         	</div>
         	<!-- /List -->

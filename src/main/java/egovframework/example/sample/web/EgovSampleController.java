@@ -23,6 +23,8 @@ import egovframework.example.sample.service.SampleVO;
 
 import egovframework.rte.fdl.property.EgovPropertyService;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 import javax.annotation.Resource;
 
@@ -93,14 +95,10 @@ public class EgovSampleController {
 		searchVO.setLastIndex(paginationInfo.getLastRecordIndex());
 		searchVO.setRecordCountPerPage(paginationInfo.getRecordCountPerPage());
 
-		List<?> sampleList = sampleService.selectSampleList(searchVO);
-		model.addAttribute("resultList", sampleList);
-
+		model.addAttribute("resultList", JSONArray.fromObject(	sampleService.selectSampleList(searchVO)));
 		int totCnt = sampleService.selectSampleListTotCnt(searchVO);
 		paginationInfo.setTotalRecordCount(totCnt);
 		model.addAttribute("paginationInfo", paginationInfo);
-
-//		return "example/sample/egovSampleList";
 		return "sample/egovSampleList";
 	}
 

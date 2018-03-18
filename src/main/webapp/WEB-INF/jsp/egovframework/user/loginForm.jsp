@@ -58,6 +58,11 @@
 </head>
 
 <body style="text-align:center; margin:0 auto; display:inline; padding-top:100px;">
-TEST
+<form name="frm">
+<input type="text" name="id" />
+<input type="password" name="pwd" />
+<button name="submit" type="submit" title="로그인"></button>
+<button name="forget"  title="비밀번호 찾기"></button>
+</form>
 </body>
 </html>
