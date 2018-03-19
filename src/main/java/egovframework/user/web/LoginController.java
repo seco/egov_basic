@@ -74,7 +74,20 @@ public class LoginController {
 	 * @exception Exception
 	 */
 	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
-	public String selectSampleList(@ModelAttribute("searchVO") SampleDefaultVO searchVO, ModelMap model) throws Exception {
+	public String loginPage(@ModelAttribute("searchVO") SampleDefaultVO searchVO, ModelMap model) throws Exception {
+		return "user/loginForm";
+	}
+
+	/**
+	 * 로그인 화면.이동
+	 * @param searchVO - 조회할 정보가 담긴 SampleDefaultVO
+	 * @param model
+	 * @return "egovSampleList"
+	 * @exception Exception
+	 */
+	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
+	public String login(@ModelAttribute("searchVO") SampleDefaultVO searchVO, ModelMap model) throws Exception {
+		
 		return "user/loginForm";
 	}
 
