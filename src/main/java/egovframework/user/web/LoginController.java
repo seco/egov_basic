@@ -87,7 +87,7 @@ public class LoginController {
 	 */
 	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
 	public String login(@ModelAttribute("searchVO") SampleDefaultVO searchVO, ModelMap model) throws Exception {
-		
+		System.out.println("login.do POST - loginCheck");
 		return "user/loginForm";
 	}
 
