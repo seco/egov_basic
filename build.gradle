@@ -1,0 +1,55 @@
+apply plugin: 'java'
+apply plugin: 'war'
+ 
+// JDK version source compatibility
+sourceCompatibility = 1.8
+ 
+// project version
+version = '1.0'
+ 
+// War file name
+war.baseName = 'egov_basic'
+ 
+// Web directory, this overrides the default value "webapp"
+project.webAppDirName = 'src/main/webapp'
+project.buildDir = 'target'
+ 
+ 
+// Set repository
+repositories {
+    mavenCentral()
+//    maven { url "http://www.egovframe.go.kr/maven/" }
+    maven { url "http://maven.egovframe.kr:8080/maven/" }
+}
+ 
+// Set source directory
+sourceSets {
+        main {
+            java {
+                srcDir 'src/main/java'
+                srcDir 'src/test/java'
+            }
+	        resources {
+	            srcDir 'src/main/resources'
+	            srcDir 'src/test/resources'
+	        }
+        }
+    }
+ 
+// dependencies to run on tomcat, are mandatory for tomcat plugin
+dependencies {
+    compile(group: 'egovframework.rte', name: 'egovframework.rte.ptl.mvc', version:'3.5.0') {
+		exclude(module: 'commons-logging')
+    }
+    compile group: 'egovframework.rte', name : 'egovframework.rte.psl.dataaccess', version :'3.5.0'
+    compile group: 'egovframework.rte', name : 'egovframework.rte.fdl.idgnr', version :'3.5.0'
+    compile group: 'egovframework.rte', name : 'egovframework.rte.fdl.property', version :'3.5.0'
+    compile group: 'javax.servlet', name : 'jstl', version :'1.2'
+    compile group: 'taglibs', name : 'standard', version :'1.1.2'
+    compile group: 'org.antlr', name : 'antlr', version :'3.5'
+	compile group: 'org.hsqldb', name : 'hsqldb', version :'2.3.2'
+	
+	compile group: 'com.googlecode.log4jdbc', name : 'log4jdbc', version :'1.2'
+	compile group: 'commons-dbcp', name : 'commons-dbcp', version :'1.4'
+    providedCompile group: 'javax.servlet', name : 'servlet-api', version :'2.5'
+   }
